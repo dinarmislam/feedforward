@@ -13,6 +13,30 @@
  *= require_tree .
  *= require_self
  */
+$brand-primary: #E74C3C;
+$font-family-sans-serif: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$navbar-default-bg: #fff;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+.navbar-brand {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+footer {
+  box-shadow: 0 0 1px rgba(0,0,0,0.15);
+  font-size: 14px;
+  font-weight: 800;
+  height: 70px;
+  line-height: 70px;
+  margin: 70px 0px 0px 0px;
+  padding: 0px 20px;
+  text-transform: uppercase;
+
+  a.icon-link {
+    color: #4F8EF7;
+  }
+}

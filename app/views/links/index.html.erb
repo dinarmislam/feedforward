@@ -1,39 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% content_for :right_nav do %>
+  <li><p class="navbar-btn"><%= link_to 'Submit A Link', new_link_path, class: "btn btn-default" %></p></li>
+<% end %>
 
-<h1>Listing Links</h1>
+<h1 class="recommended text-center">Recommended Business And Startup Links</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Link type</th>
-      <th>Url</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Votes count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link.user_id %></td>
-        <td><%= link.title %></td>
-        <td><%= link.link_type %></td>
-        <td><%= link.url %></td>
-        <td><%= link.description %></td>
-        <td><%= link.image %></td>
-        <td><%= link.votes_count %></td>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Link', new_link_path %>
+<%= render @links %>

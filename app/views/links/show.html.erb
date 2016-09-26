@@ -1,39 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% content_for :right_nav do %>
+  <li><p class="navbar-btn"><%= link_to 'Submit A Link', new_link_path, class: "btn btn-default" %></p></li>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @link.user_id %>
-</p>
+<%= render @link %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
-
-<p>
-  <strong>Link type:</strong>
-  <%= @link.link_type %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @link.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @link.image %>
-</p>
-
-<p>
-  <strong>Votes count:</strong>
-  <%= @link.votes_count %>
-</p>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<div id="disqus_thread"></div>
