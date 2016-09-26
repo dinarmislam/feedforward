@@ -5,10 +5,10 @@
 <%= render @link %>
 
 <div id="disqus_thread"></div>
-<script type="text/javascript">
+<script>
 
 
-var disqus_config = function () {       
+var disqus_config = function () {
        this.page.url = '<%= url_for([@link, {only_path: false}]) %>';
        this.page.identifier = '<%= @link.id %>';
        this.page.title = '<%= @link.title %>';
