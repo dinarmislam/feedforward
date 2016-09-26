@@ -8,8 +8,7 @@
 <script type="text/javascript">
 
 
-var disqus_config = function () {
-       shortname = 'Rails Feeds';
+var disqus_config = function () {       
        this.page.url = '<%= url_for([@link, {only_path: false}]) %>';
        this.page.identifier = '<%= @link.id %>';
        this.page.title = '<%= @link.title %>';
