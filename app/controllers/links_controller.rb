@@ -1,15 +1,23 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show, :go]
 
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    @links = Link.sorted
   end
 
   # GET /links/1
   # GET /links/1.json
   def show
+    @link = Link.find(params[:id])
+  end
+
+  def go
+    @link = Link.find(params[:id])
+    @link.increment! :view_count
+    redirect_to @link.url
   end
 
   # GET /links/new
@@ -24,10 +32,11 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.new(link_params)
 
     respond_to do |format|
       if @link.save
+        @link.votes.create(user: current_user)
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
         format.json { render :show, status: :created, location: @link }
       else
@@ -64,11 +73,11 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find(params[:id])
+      @link = current_user.links.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:user_id, :title, :link_type, :url, :description, :image, :votes_count)
+      params.require(:link).permit(:user_id, :title, :link_type, :url, :description, :image)
     end
 end
