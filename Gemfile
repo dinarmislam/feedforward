@@ -12,7 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
-
+gem "opengraph_parser"
 group :development, :test do
   gem 'byebug'
 end
