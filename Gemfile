@@ -13,6 +13,8 @@ gem "font-awesome-rails"
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem "opengraph_parser"
+gem 'will_paginate', '~> 3.1.1'
+gem 'will_paginate-bootstrap'
 group :development, :test do
   gem 'byebug'
 end

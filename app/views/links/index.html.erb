@@ -5,3 +5,4 @@
 <h1 class="recommended text-center">Recommended Ruby on Rails Links</h1>
 
 <%= render @links %>
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
