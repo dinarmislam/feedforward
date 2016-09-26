@@ -12,7 +12,7 @@
         <%= link.link_type.capitalize %> submitted by <%= link.user.try(:name) %>
         | <%= pluralize link.view_count, "view" %>
         | <%= link_to link do %>
-            <% content_tag :span, "Comments", class: "disqus-comment-count", data: { disqus_url: link_url(link) } %>
+            <% content_tag :span, "Comments", class: "disqus-comment-count", data: { disqus_identifier: link.id } %>
           <% end %>
         <% if user_signed_in? && link.user == current_user %>| <%= link_to "Edit", edit_link_path(link) %><% end %>
       </p>
